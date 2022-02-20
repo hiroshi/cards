@@ -16,4 +16,9 @@ class ApplicationReflex < StimulusReflex::Reflex
   #
   # For code examples, considerations and caveats, see:
   # https://docs.stimulusreflex.com/rtfm/patterns#internationalization
+
+  # https://blog.minthesize.com/stimulus-reflex-importmaps
+  def increment
+    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+  end
 end

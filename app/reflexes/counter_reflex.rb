@@ -34,5 +34,7 @@ class CounterReflex < ApplicationReflex
   # Learn more at: https://docs.stimulusreflex.com/rtfm/reflex-classes
 
   def increment
+    # @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+    session[:count] = session[:count].to_i + element.dataset[:step].to_i
   end
 end
