@@ -1,0 +1,8 @@
+<%= @cards.each do |card| %>
+  <div><%= card.content %></div>
+<% end %>
+
+<%= form_with model: Card.new, data: { reflex: 'submit->CardReflex#create' } do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
