@@ -1,8 +1,12 @@
-<%= @cards.each do |card| %>
-  <div><%= card.content %></div>
-<% end %>
+<div class='container w-96 px-4 py-2 space-y-1'>
+  <% @cards.each do |card| %>
+    <div class='border border-slate-400 rounded'>
+      <%= card.content %> &nbsp;
+    </div>
+  <% end %>
 
-<%= form_with model: Card.new, data: { reflex: 'submit->CardReflex#create' } do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>
+  <%= form_with model: Card.new, data: { reflex: 'submit->CardReflex#create' }, class: 'border border-slate-400 rounded' do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</div>
