@@ -1,0 +1,9 @@
+<div class='border border-slate-400 rounded'>
+  <%= form_with model: card, data: { reflex: 'submit->card#form' } do |f| %>
+    <% unless card.new_record? %>
+      <%= hidden_field_tag :id, card.id %>
+    <% end %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -33,7 +33,18 @@ class CardReflex < ApplicationReflex
   #
   # Learn more at: https://docs.stimulusreflex.com/rtfm/reflex-classes
 
-  def create
-    Card.create!(params.require(:card).permit(:content))
+  def form
+    if params[:id]
+      card = Card.find(params[:id])
+    else
+      card = Card.new
+    end
+    card.update!(params.require(:card).permit(:content))
+  end
+
+  def edit
+    did = element[:id]
+    card = Card.find(did.match(/card_(.*)/)[1])
+    morph "##{did}", render(partial: 'form', locals: { card: card })
   end
 end

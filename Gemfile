@@ -5,6 +5,10 @@ ruby "3.1.0"
 
 # https://blog.minthesize.com/stimulus-reflex-importmaps
 gem "stimulus_reflex", "= 3.5.0.pre8"
+# https://github.com/stimulusreflex/stimulus_reflex/pull/569
+# NOTE: ruby 3.1.1 doesn't have ostruct 0.5.3 yet.
+# gem "stimulus_reflex", github: 'stimulusreflex/stimulus_reflex', ref: '9287e4c'
+gem 'ostruct', '~> 0.5.3'
 
 # 2022-02-20 Mongoid Rails 7 support is not released yet
 # https://github.com/mongodb/mongoid/commit/483aa5a0377cf66ea0b25916c61fbf2af604d488

@@ -1,12 +1,9 @@
 <div class='container w-96 px-4 py-2 space-y-1'>
   <% @cards.each do |card| %>
-    <div class='border border-slate-400 rounded'>
+    <div id='<%=dom_id(card)%>' class='border border-slate-400 rounded' data-reflex='click->card#edit'>
       <%= card.content %> &nbsp;
     </div>
   <% end %>
 
-  <%= form_with model: Card.new, data: { reflex: 'submit->CardReflex#create' }, class: 'border border-slate-400 rounded' do |f| %>
-    <%= f.text_area :content %>
-    <%= f.submit %>
-  <% end %>
+  <%= render partial: 'form', locals: { card: Card.new } %>
 </div>
